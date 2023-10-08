@@ -64,14 +64,15 @@ int main(){
 	if(!platform_create_window(window)){
 		return -1;
 	}
+	
+	if(!vk_init(&vkcontext)){
+		return -1;
+	}
 
 	while(running){
 		platform_update_window(window);
 	}
 
-	if(!vk_init(&vkcontext)){
-		return -1;
-	}
 
 	return 0;
 }
