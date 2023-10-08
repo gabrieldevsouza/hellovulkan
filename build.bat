@@ -8,4 +8,4 @@ SET defines=/D DEBUG
 
 echo "Building main..."
 
-cl /EHSC /Fe"main" %includes% %defines% src/platform/win32_platform.cpp %links%
+cl /EHsc /Fe"main" %includes% %defines% src/platform/win32_platform.cpp %links%

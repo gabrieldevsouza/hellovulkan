@@ -1,7 +1,11 @@
 
 #include <vulkan/vulkan.h>
 
-void vk_init(){
+struct VkContext{
+	VkInstance instance;
+};
+
+bool vk_init(VkContext* vkcontext){
 	VkApplicationInfo appInfo = {};
 	appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
 	appInfo.pApplicationName = "Hello Vulkan";
@@ -13,5 +17,11 @@ void vk_init(){
 
 	VkInstance instance;
 
-	VkResult result = vkCreateInstance(&instanceInfo, 0, &instance);
+	VkResult result = vkCreateInstance(&instanceInfo, 0, &vkcontext->instance);
+
+	if(result == VK_SUCCESS){
+		return true;
+	}
+
+	return false;
 }
